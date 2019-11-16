@@ -3,6 +3,7 @@ package com.example.slohacks2019;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -17,9 +18,8 @@ public class AddFriendActivity extends Activity {
     Intent intent = this.getIntent();
     Bundle bundle = intent.getExtras();
 
-    private User user = (User) bundle.getSerializable("user");
-    private Map<String, User> friendList =
-            (Map<String, User>) bundle.getSerializable("friends");
+    private String userID = bundle.getString("user");
+    private User user = StoredInfo.getFriends().get(userID);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,13 @@ public class AddFriendActivity extends Activity {
         user.updateName(name);
         user.updateFact(fact);
 
-        friendList.put(user.getIdentifier(), user);
     }
+
+    public void returnToMain(View view)
+    {
+        Intent intent = new Intent(AddFriendActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
 }

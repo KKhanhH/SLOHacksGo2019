@@ -57,6 +57,10 @@ public class User {
         this.name = name;
     }
 
+    public String getTimesMet() {
+        return Integer.toString(timesMet);
+    }
+
     public void updateImagePath(String path) {
         this.imagePath = path;
     }
@@ -65,8 +69,9 @@ public class User {
         this.fact = fact;
     }
 
-    public void meetWith() {
+    public int meetWith() {
         timesMet++;
+        return timesMet;
     }
 
     @Override

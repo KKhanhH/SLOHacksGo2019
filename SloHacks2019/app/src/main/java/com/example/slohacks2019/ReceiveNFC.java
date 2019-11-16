@@ -15,17 +15,21 @@ public class ReceiveNFC extends AppCompatActivity {
 
     private TextView mTextView;
     private String receivedString = "";
+    private boolean receivedSignal = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_nfc);
         mTextView = (TextView) findViewById(R.id.mTextView);
+
+        while (!receivedSignal)
+            waitingForSignal();
     }
 
-    @Override
-    protected void onResume(){
-        super.onResume();
+
+    protected void waitingForSignal(){
+        //super.onResume();
         Intent intent = getIntent();
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             Parcelable[] rawMessages = intent.getParcelableArrayExtra(
@@ -33,14 +37,13 @@ public class ReceiveNFC extends AppCompatActivity {
 
             NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
             receivedString = new String(message.getRecords()[0].getPayload());
-            if (StoredInfo.getFriends().containsKey(receivedString))
-                StoredInfo.getFriends().get(receivedString).meetWith();
-            else {
-                //Intent sendNFCIntent = new Intent(MainActivity.this, SendNFC.class);
-                //MainActivity.this.startActivity(sendNFCIntent);
+            User user = StoredInfo.getFriends().get(receivedString);
+            if (user == null)
+                newFriend(receivedString);
 
-            }
-            mTextView.setText(receivedString);
+
+            mTextView.setText(Integer.toString(user.meetWith()));
+            receivedSignal = true;
 
         } else
             mTextView.setText("Waiting for NDEF Message");
@@ -51,5 +54,17 @@ public class ReceiveNFC extends AppCompatActivity {
     {
         Intent intent = new Intent(ReceiveNFC.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void newFriend(String receivedString) {
+        User user = new User(receivedString);
+        StoredInfo.addFriend(receivedString, user);
+
+        Intent sendNFCIntent = new Intent(ReceiveNFC.this,
+                AddFriendActivity.class);
+
+        sendNFCIntent.putExtra("UserID", receivedString);
+        startActivity(sendNFCIntent);
+
     }
 }
