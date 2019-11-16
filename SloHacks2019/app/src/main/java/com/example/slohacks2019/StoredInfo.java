@@ -5,21 +5,21 @@ import java.util.HashMap;
 
 public class StoredInfo {
 
-    public static StoredInfo savedInfo = new StoredInfo();
+    //public static StoredInfo savedInfo = new StoredInfo();
 
-    public User currentUser;
+    public static User currentUser = new User("Dummy");
 
-    private Map<String, User> friends = new HashMap<>();
+    private static Map<String, User> friends = new HashMap<>();
 
-    public void addFriend(String identifier, User newUser){
+    public static void addFriend(String identifier, User newUser){
         friends.put(identifier, newUser);
     }
 
-    public void removeFriend(User removedUser) {
+    public static void removeFriend(User removedUser) {
         friends.remove(removedUser.getIdentifier());
     }
 
-    public Map<String, User> getFriends(){
+    public static Map<String, User> getFriends(){
         return friends;
     }
 

@@ -32,6 +32,13 @@ public class ReceiveNFC extends AppCompatActivity {
 
             NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
             receivedString = new String(message.getRecords()[0].getPayload());
+            if (StoredInfo.getFriends().containsKey(receivedString))
+                StoredInfo.getFriends().get(receivedString).meetWith();
+            else {
+                //Intent sendNFCIntent = new Intent(MainActivity.this, SendNFC.class);
+                //MainActivity.this.startActivity(sendNFCIntent);
+
+            }
             mTextView.setText(receivedString);
 
         } else
