@@ -16,6 +16,7 @@ public class ReceiveNFC extends AppCompatActivity {
     private TextView mTextView;
     private String receivedString = "";
     private boolean receivedSignal = false;
+    private int testCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +24,16 @@ public class ReceiveNFC extends AppCompatActivity {
         setContentView(R.layout.activity_receive_nfc);
         mTextView = (TextView) findViewById(R.id.mTextView);
 
-        while (!receivedSignal)
-            waitingForSignal();
+        //while (!receivedSignal)
+          //  waitingForSignal();
     }
 
 
-    protected void waitingForSignal(){
-        //super.onResume();
+    protected void onResume(){
+        super.onResume();
         Intent intent = getIntent();
+
+
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             Parcelable[] rawMessages = intent.getParcelableArrayExtra(
                     NfcAdapter.EXTRA_NDEF_MESSAGES);
@@ -46,7 +49,9 @@ public class ReceiveNFC extends AppCompatActivity {
             receivedSignal = true;
 
         } else
-            mTextView.setText("Waiting for NDEF Message");
+            testCounter++;
+            mTextView.setText(Integer.toString(testCounter));
+
 
     }
 

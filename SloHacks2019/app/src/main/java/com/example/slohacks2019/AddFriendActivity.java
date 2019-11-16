@@ -7,8 +7,6 @@ import android.view.View;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Map;
-
 public class AddFriendActivity extends Activity {
 
     private TextInputLayout friendField;
@@ -27,7 +25,7 @@ public class AddFriendActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    protected void newFriend() {
+    protected void newFriend(View view) {
         friendField = findViewById(R.id.friend_field);
         friendNumber = findViewById(R.id.friend_number);
         interestingFact = findViewById((R.id.interesting_fact));
@@ -38,6 +36,8 @@ public class AddFriendActivity extends Activity {
 
         user.updateName(name);
         user.updateFact(fact);
+
+        returnToMain(view);
 
     }
 
