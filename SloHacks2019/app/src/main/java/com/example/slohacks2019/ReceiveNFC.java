@@ -7,6 +7,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -36,5 +37,11 @@ public class ReceiveNFC extends AppCompatActivity {
         } else
             mTextView.setText("Waiting for NDEF Message");
 
+    }
+
+    public void returnToMain(View view)
+    {
+        Intent intent = new Intent(ReceiveNFC.this, MainActivity.class);
+        startActivity(intent);
     }
 }
