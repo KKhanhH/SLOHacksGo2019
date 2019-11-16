@@ -1,6 +1,7 @@
 package com.example.slohacks2019;
 
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class StoredInfo {
 
@@ -8,17 +9,17 @@ public class StoredInfo {
 
     public User currentUser;
 
-    private ArrayList<User> friends = new ArrayList<User>();
+    private Map<String, User> friends = new HashMap<>();
 
-    public void addFriend(User newUser){
-        friends.add(newUser);
+    public void addFriend(String identifier, User newUser){
+        friends.put(identifier, newUser);
     }
 
     public void removeFriend(User removedUser) {
-        friends.remove(removedUser);
+        friends.remove(removedUser.getIdentifier());
     }
 
-    public ArrayList<User> getFriends(){
+    public Map<String, User> getFriends(){
         return friends;
     }
 
