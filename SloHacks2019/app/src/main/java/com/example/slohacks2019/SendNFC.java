@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
 
-    NfcAdapter mAdapter;
     private String send =StoredInfo.currentUser.getIdentifier();
 
     @Override
@@ -21,7 +20,7 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_nfc);
 
-        mAdapter = NfcAdapter.getDefaultAdapter(this);
+        NfcAdapter mAdapter = NfcAdapter.getDefaultAdapter(this);
         if (mAdapter == null) {
             Toast.makeText(this, "This device does not support NFC.", Toast.LENGTH_LONG).show();
             return;
@@ -33,8 +32,6 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
 
         mAdapter.setNdefPushMessageCallback(this, this);
 
-        Intent intent = new Intent(SendNFC.this, MainActivity.class);
-        startActivity(intent);
     }
 
 
