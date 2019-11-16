@@ -41,6 +41,10 @@ public class User {
         return name;
     }
 
+    public String getFact() {
+        return fact;
+    }
+
     public String getIdentifier() {
         return identifier;
     }
@@ -61,9 +65,16 @@ public class User {
         this.fact = fact;
     }
 
+    public void meetWith() {
+        timesMet++;
+    }
+
     @Override
     public boolean equals(Object other){
+        if (other == null || other.getClass() != getClass())
+            return false;
+
         User otherUser = (User) other;
-        return this.getIdentifier() == otherUser.getIdentifier();
+        return this.getIdentifier().equals(otherUser.getIdentifier());
     }
 }
