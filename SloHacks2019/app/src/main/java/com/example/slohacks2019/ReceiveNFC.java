@@ -13,13 +13,14 @@ import android.widget.TextView;
 
 public class ReceiveNFC extends AppCompatActivity {
 
-    private TextView mTextView = (TextView) findViewById(R.id.mTextView);
+    private TextView mTextView;
     private String receivedString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_nfc);
+        mTextView = (TextView) findViewById(R.id.mTextView);
     }
 
     @Override
