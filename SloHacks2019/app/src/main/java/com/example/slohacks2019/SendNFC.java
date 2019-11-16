@@ -2,11 +2,13 @@ package com.example.slohacks2019;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
@@ -46,6 +48,11 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
         return ndefMessage;
     }
 
+    public void returnToMain(View view)
+    {
+        Intent intent = new Intent(SendNFC.this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
 }

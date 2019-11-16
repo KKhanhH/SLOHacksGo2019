@@ -15,32 +15,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        final Button sendNFCButton = (Button) findViewById(R.id.sendNFC);
-        sendNFCButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //add your code here..
-                Intent sendNFCIntent = new Intent(MainActivity.this, SendNFC.class);
-                MainActivity.this.startActivity(sendNFCIntent);
+    public void startSend(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, SendNFC.class);
+        startActivity(intent);
+    }
 
-                WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.screenBrightness = 0;
-                getWindow().setAttributes(params);
-            }
-        });
-
-        final Button receiveNFCButton = (Button) findViewById(R.id.receiveNFC);
-        receiveNFCButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //add your code here..
-                Intent receiveNFCIntent = new Intent(MainActivity.this, ReceiveNFC.class);
-                MainActivity.this.startActivity(receiveNFCIntent);
-
-                WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.screenBrightness = 0;
-                getWindow().setAttributes(params);
-            }
-        });
+    public void startReceive(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, ReceiveNFC.class);
+        startActivity(intent);
     }
 
 }
