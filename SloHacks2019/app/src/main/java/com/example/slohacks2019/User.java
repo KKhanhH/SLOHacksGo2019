@@ -34,4 +34,10 @@ public class User {
     public String getImagePath() {
         return imagePath;
     }
+
+    @Override
+    public boolean equals(Object other){
+        User otherUser = (User) other;
+        return this.getIdentifier() == otherUser.getIdentifier();
+    }
 }
