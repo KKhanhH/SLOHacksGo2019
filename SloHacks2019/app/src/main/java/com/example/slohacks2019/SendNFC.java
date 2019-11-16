@@ -33,7 +33,10 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
 
         mAdapter.setNdefPushMessageCallback(this, this);
 
+        Intent intent = new Intent(SendNFC.this, MainActivity.class);
+        startActivity(intent);
     }
+
 
     @Override
     public NdefMessage createNdefMessage(NfcEvent nfcEvent) {
@@ -48,11 +51,6 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
         return ndefMessage;
     }
 
-    public void returnToMain(View view)
-    {
-        Intent intent = new Intent(SendNFC.this, MainActivity.class);
-        startActivity(intent);
-    }
 
 
 }
