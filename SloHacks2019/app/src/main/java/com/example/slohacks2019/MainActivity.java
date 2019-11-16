@@ -2,10 +2,10 @@ package com.example.slohacks2019;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static String TAG = "NFCDEMO:"+MainActivity.class.getSimpleName();
 
 
 
@@ -15,12 +15,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-    private View.OnClickListener _onBeamClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View inputView) {
-            Log.i(TAG, "_onBeamClick onClick");
-            turnOnNfcBeam(this);
-        }
-    };
 }

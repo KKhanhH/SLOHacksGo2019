@@ -60,4 +60,10 @@ public class User {
     public void updateFact(String fact) {
         this.fact = fact;
     }
+
+    @Override
+    public boolean equals(Object other){
+        User otherUser = (User) other;
+        return this.getIdentifier() == otherUser.getIdentifier();
+    }
 }
