@@ -20,8 +20,10 @@ public class User {
         timesMetConsecutively = 0;
     }
 
-    public User(String identifier, int timesMet){
+    public User(String identifier, String name, String imagePath, int timesMet){
         this.identifier = identifier;
+        this.name = name;
+        this.imagePath = imagePath;
         this.timesMet = timesMet;
     }
 

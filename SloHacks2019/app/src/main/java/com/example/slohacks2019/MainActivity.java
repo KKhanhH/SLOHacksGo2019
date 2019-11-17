@@ -26,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            retrieveInformation();
+        }
+        catch (IOException e){
+            //do nothing
+        }
     }
 
     public void startSend(View view)
@@ -55,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         outputWriter.close();
     }
 
-    public List<User> retrieveInformation() throws IOException {
-        List<User> friendsList = new ArrayList<>();
+    public void retrieveInformation() throws IOException {
+        //List<User> friendsList = new ArrayList<>();
         try{
             FileInputStream fileIn= openFileInput("friends.txt");
             InputStreamReader InputRead= new InputStreamReader(fileIn);
@@ -71,18 +78,18 @@ public class MainActivity extends AppCompatActivity {
                 //1 -> name
                 //2 -> imagePath
                 //3 -> timeMet
-                friendsList.add(new User(parseData[0], parseData[1], parseData[2]));
+                StoredInfo.addFriend(parseData[0], new User(parseData[0],
+                                    parseData[1], parseData[2],
+                                    Integer.parseInt(parseData[3])));
             }
 
         }catch(FileNotFoundException e){
             //File is not presented, create a empty file
             FileOutputStream fOut = openFileOutput("friends.txt", Context.MODE_PRIVATE);
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         //Parse the file into different users and create a list of users
-
-        return friendsList;
 
     }
 
