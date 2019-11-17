@@ -13,16 +13,20 @@ public class AddFriendActivity extends Activity {
     private TextInputLayout friendNumber;
     private TextInputLayout interestingFact;
 
-    Intent intent = this.getIntent();
-    Bundle bundle = intent.getExtras();
-
-    private String userID = bundle.getString("user");
-    private User user = StoredInfo.getFriends().get(userID);
+    private String userID;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.add_friend);
+
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+
+        userID = bundle.getString("user");
+        user = StoredInfo.getFriends().get(userID);
+
     }
 
     protected void newFriend(View view) {
@@ -37,11 +41,11 @@ public class AddFriendActivity extends Activity {
         user.updateName(name);
         user.updateFact(fact);
 
-        returnToMain(view);
+        returnToMain();
 
     }
 
-    public void returnToMain(View view)
+    public void returnToMain()
     {
         Intent intent = new Intent(AddFriendActivity.this, MainActivity.class);
         startActivity(intent);
