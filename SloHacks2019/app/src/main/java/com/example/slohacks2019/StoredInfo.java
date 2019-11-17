@@ -2,6 +2,7 @@ package com.example.slohacks2019;
 
 import android.app.Activity;
 import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -15,12 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import android.telephony.TelephonyManager;
+import android.content.Context;
 
 public class StoredInfo extends Activity {
 
     //public static StoredInfo savedInfo = new StoredInfo();
 
-    private static User currentUser = new User("Dummy");
+    private static User currentUser = new User("dummy");
 
     private static Map<String, User> friends = new HashMap<>();
 
@@ -40,9 +43,8 @@ public class StoredInfo extends Activity {
         return currentUser;
     }
 
-    public static void updateCurrentUser(User newUser){
-        currentUser = newUser;
+    public static void updateCurrentUser(User user){
+        currentUser = user;
     }
-
 
 }
