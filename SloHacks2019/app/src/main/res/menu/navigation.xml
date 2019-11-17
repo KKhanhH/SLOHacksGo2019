@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/home"
         android:onClick="openHome"
         android:title="Home"
         android:visible="true" />

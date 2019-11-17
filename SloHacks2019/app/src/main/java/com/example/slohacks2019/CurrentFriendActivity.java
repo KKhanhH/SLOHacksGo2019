@@ -42,7 +42,7 @@ public class CurrentFriendActivity extends Activity {
 
         name.setText(user.getName());
         fact.setText(user.getFact());
-        timesMet.setText(Integer.toString(user.meetWith()));
+        timesMet.setText("How many times met: ".concat(Integer.toString(user.meetWith())));
     }
 
     public void toMain(View view) {
