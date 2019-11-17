@@ -3,6 +3,7 @@ package com.example.slohacks2019;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -24,12 +25,17 @@ public class AddFriendActivity extends Activity {
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
 
-        userID = bundle.getString("user");
+        userID = intent.getExtras().getString("UserID");
+
+        Log.d("UserID", userID == null ? "null" : userID);
+
         user = StoredInfo.getFriends().get(userID);
 
     }
 
-    protected void newFriend(View view) {
+    public void newFriend(View view) {
+
+        Log.d("Friend", "in NewFriend");
         friendField = findViewById(R.id.friend_field);
         friendNumber = findViewById(R.id.friend_number);
         interestingFact = findViewById((R.id.interesting_fact));
