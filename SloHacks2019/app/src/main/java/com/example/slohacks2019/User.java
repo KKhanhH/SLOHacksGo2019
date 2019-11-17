@@ -82,4 +82,9 @@ public class User {
         User otherUser = (User) other;
         return this.getIdentifier().equals(otherUser.getIdentifier());
     }
+
+    @Override
+    public String toString(){
+        return identifier + " " +  name + " " + imagePath + " " + timesMet;
+    }
 }
