@@ -66,6 +66,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openProfile(View view){
+        Intent intent = new Intent(view.getContext(),Profile.class);
+        startActivity(intent);
+    }
+
+    public void openHome(View view){
+        Intent intent = new Intent(view.getContext(),MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openFriends(View view){
+//        Intent intent = new Intent(this,Profile.class);
+//        startActivity(intent);
+    }
+
     public void storeInformation() throws IOException {
         FileOutputStream fOut = openFileOutput("friends.txt", Context.MODE_PRIVATE);
         Map<String, User> friends = StoredInfo.getFriends();
