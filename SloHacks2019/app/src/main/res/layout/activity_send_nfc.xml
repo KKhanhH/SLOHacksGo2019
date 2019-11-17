@@ -14,7 +14,7 @@
         android:layout_marginBottom="68dp"
         android:background="@drawable/rounded_button"
         android:onClick="returnToMain"
-        android:text="Button"
+        android:text="Back"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

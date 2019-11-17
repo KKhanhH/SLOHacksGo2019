@@ -20,6 +20,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            storeInformation();
+        }
+        catch (IOException e) {
+            //pass
+        }
+    }
+
     public void startSend(View view)
     {
         Intent intent = new Intent(MainActivity.this, SendNFC.class);
@@ -50,14 +61,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void StoreInformation(List<User> users) throws IOException {
+    public void storeInformation() throws IOException {
         FileOutputStream fOut = openFileOutput("friends.txt", Context.MODE_PRIVATE);
+        Map<String, User> friends = StoredInfo.getFriends();
+        User user;
         OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+
         //display file saved message for debugging purposes
         Toast.makeText(getBaseContext(), "File saved successfully!",
                 Toast.LENGTH_SHORT).show();
 
-        for(User user : users){
+        for(String userID : friends.keySet()){
+            user = friends.get(userID);
             outputWriter.write(user.toString());
             String seperator = System.getProperty("line.separator");
             outputWriter.append(seperator);
@@ -66,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void retrieveInformation() throws IOException {
-        //List<User> friendsList = new ArrayList<>();
         try{
             FileInputStream fileIn= openFileInput("friends.txt");
             InputStreamReader InputRead= new InputStreamReader(fileIn);
