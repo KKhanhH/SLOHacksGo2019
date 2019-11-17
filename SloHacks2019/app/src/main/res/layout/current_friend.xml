@@ -32,4 +32,10 @@
         android:background="#f4de15"
         android:onClick="toMain"
         android:text="Button" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/ic_person_blue_24dp" />
 </LinearLayout>
