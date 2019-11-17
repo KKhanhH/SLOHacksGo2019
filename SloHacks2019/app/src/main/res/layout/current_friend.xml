@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/friendName"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/interestingFact"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/timesMet"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/currentFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toMain"
+        android:text="Button" />
+</LinearLayout>

@@ -16,8 +16,6 @@ public class ReceiveNFC extends AppCompatActivity {
 
     private TextView mTextView;
     private String receivedString = "";
-    private boolean receivedSignal = false;
-    private int testCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +23,6 @@ public class ReceiveNFC extends AppCompatActivity {
         setContentView(R.layout.activity_receive_nfc);
         mTextView = (TextView) findViewById(R.id.mTextView);
 
-        //while (!receivedSignal)
-          //  waitingForSignal();
     }
 
 
@@ -42,14 +38,14 @@ public class ReceiveNFC extends AppCompatActivity {
             NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
             receivedString = new String(message.getRecords()[0].getPayload());
             User user = StoredInfo.getFriends().get(receivedString);
+
             if (user == null)
                 newFriend(receivedString);
 
             else {
                 Log.d("MeetWith", user.getTimesMet());
-                mTextView.setText(Integer.toString(user.meetWith()));
+                currentFriend(user);
             }
-            receivedSignal = true;
 
         } else
             mTextView.setText("Waiting for message");
@@ -73,5 +69,12 @@ public class ReceiveNFC extends AppCompatActivity {
         sendNFCIntent.putExtra("UserID", receivedString);
         startActivity(sendNFCIntent);
 
+    }
+
+    public void currentFriend(User friend) {
+        Intent currentFriendIntent = new Intent(ReceiveNFC.this,
+                                                CurrentFriendActivity.class);
+        currentFriendIntent.putExtra("UserID", friend.getIdentifier());
+        startActivity(currentFriendIntent);
     }
 }
