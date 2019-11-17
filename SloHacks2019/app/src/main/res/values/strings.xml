@@ -4,4 +4,5 @@
     <string name="Friend_number">What is your friend\'s phone number?</string>
     <string name="interesting_fact">What is an interesting fact about your friend?</string>
     <string name="Submit">Submit</string>
+    <string name="ToHome">Return to home screen!</string>
 </resources>
