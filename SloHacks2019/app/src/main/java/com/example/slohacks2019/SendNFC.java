@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback{
 
-    private String send =StoredInfo.currentUser.getIdentifier();
+    private String send = StoredInfo.getCurrentUser().getIdentifier();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

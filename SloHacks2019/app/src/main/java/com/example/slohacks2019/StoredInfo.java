@@ -20,7 +20,7 @@ public class StoredInfo extends Activity {
 
     //public static StoredInfo savedInfo = new StoredInfo();
 
-    public static User currentUser = new User("Dummy");
+    private static User currentUser = new User("Dummy");
 
     private static Map<String, User> friends = new HashMap<>();
 
@@ -34,6 +34,14 @@ public class StoredInfo extends Activity {
 
     public static Map<String, User> getFriends(){
         return friends;
+    }
+
+    public static User getCurrentUser(){
+        return currentUser;
+    }
+
+    public static void updateCurrentUser(User newUser){
+        currentUser = newUser;
     }
 
 
