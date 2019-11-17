@@ -7,6 +7,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,13 +45,14 @@ public class ReceiveNFC extends AppCompatActivity {
             if (user == null)
                 newFriend(receivedString);
 
-            else
+            else {
+                Log.d("MeetWith", user.getTimesMet());
                 mTextView.setText(Integer.toString(user.meetWith()));
+            }
             receivedSignal = true;
 
         } else
-            testCounter++;
-            mTextView.setText(Integer.toString(testCounter));
+            mTextView.setText("Waiting for message");
 
 
     }
