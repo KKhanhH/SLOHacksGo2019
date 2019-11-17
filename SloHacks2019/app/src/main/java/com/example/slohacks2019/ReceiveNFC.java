@@ -44,8 +44,8 @@ public class ReceiveNFC extends AppCompatActivity {
             if (user == null)
                 newFriend(receivedString);
 
-
-            mTextView.setText(Integer.toString(user.meetWith()));
+            else
+                mTextView.setText(Integer.toString(user.meetWith()));
             receivedSignal = true;
 
         } else
