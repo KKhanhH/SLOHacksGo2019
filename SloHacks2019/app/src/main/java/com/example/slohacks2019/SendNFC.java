@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
+public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback{
 
     private String send =StoredInfo.currentUser.getIdentifier();
 
@@ -31,9 +31,16 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
         }
 
         mAdapter.setNdefPushMessageCallback(this, this);
+        mAdapter.setOnNdefPushCompleteCallback(this, this);
 
     }
 
+    @Override
+    public void onNdefPushComplete(NfcEvent event) {
+        //This is called when the system detects that our NdefMessage was
+        //Successfully sent.
+        Toast.makeText(this, "Successfully sent message.", Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public NdefMessage createNdefMessage(NfcEvent nfcEvent) {
@@ -47,6 +54,14 @@ public class SendNFC extends AppCompatActivity implements NfcAdapter.CreateNdefM
         NdefMessage ndefMessage = new NdefMessage(ndefRecord);
         return ndefMessage;
     }
+
+    public void returnToMain(View view)
+    {
+        Intent intent = new Intent(SendNFC.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
 
 
