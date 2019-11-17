@@ -6,7 +6,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#396dbf">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/friend_field"
@@ -28,7 +29,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="151dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/interesting_fact"
@@ -39,9 +40,10 @@
 
                 <Button
                     android:id="@+id/friendButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="106dp"
+                    android:layout_width="421dp"
+                    android:layout_height="190dp"
                     android:layout_weight="1"
+                    android:background="#f4de15"
                     android:onClick="newFriend"
                     android:text="@string/Submit" />
 
