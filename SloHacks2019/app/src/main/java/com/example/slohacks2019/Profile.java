@@ -2,6 +2,7 @@ package com.example.slohacks2019;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,6 +27,11 @@ public class Profile extends AppCompatActivity {
             myInterestingFact.setText(StoredInfo.getCurrentUser().getFact());
 
         }
+    }
+
+    public void openHome(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     public void saveProfile(View view){ myName = findViewById(R.id.name);
