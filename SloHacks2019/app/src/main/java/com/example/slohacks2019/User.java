@@ -6,6 +6,7 @@ public class User {
 
     private String name;
     private String identifier;
+    private String phoneNumber;
     private String imagePath;
     private String fact;
     private int timesMet;
@@ -46,6 +47,9 @@ public class User {
 
     }
 
+    public void updateNumber(String number) {
+        this.phoneNumber = number;
+    }
     public String getName() {
         return name;
     }
@@ -76,6 +80,10 @@ public class User {
 
     public void updateFact(String fact) {
         this.fact = fact;
+    }
+
+    public void setImagePath(String path) {
+        this.imagePath = path;
     }
 
     public int meetWith() {
