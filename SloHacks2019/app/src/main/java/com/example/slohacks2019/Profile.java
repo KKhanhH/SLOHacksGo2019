@@ -22,7 +22,7 @@ public class Profile extends AppCompatActivity {
         myInterestingFact = findViewById((R.id.funFact));
         if(StoredInfo.getCurrentUser().getIdentifier()!="Dummy"){
             myName.setText(StoredInfo.getCurrentUser().getName());
-            myNumber.setText(StoredInfo.getCurrentUser().getIdentifier());
+            myNumber.setText(StoredInfo.getCurrentUser().getNumber());
             myInterestingFact.setText(StoredInfo.getCurrentUser().getFact());
 
         }
@@ -33,8 +33,9 @@ public class Profile extends AppCompatActivity {
         String number = myNumber.getText().toString();
         String fact = myInterestingFact.getText().toString();
 
-        User currentUser = new User(name,number,fact);
-        StoredInfo.updateCurrentUser(currentUser);
+        StoredInfo.getCurrentUser().updateName(name);
+        StoredInfo.getCurrentUser().updateNumber(number);
+        StoredInfo.getCurrentUser().updateFact(fact);
 
 
     }
