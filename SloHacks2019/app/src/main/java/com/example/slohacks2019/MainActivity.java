@@ -29,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String deviceId = telephonyManager.getDeviceId();
+        String deviceId = "0";
+        try {
+            deviceId = telephonyManager.getDeviceId();
+        } catch(SecurityException e){
+            Toast.makeText(this, "Please allow phone permissions.", Toast.LENGTH_LONG).show();
+        }
         StoredInfo.updateCurrentUser(new User(deviceId));
         try {
             retrieveInformation();
