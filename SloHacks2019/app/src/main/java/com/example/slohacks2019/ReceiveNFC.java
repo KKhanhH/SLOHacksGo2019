@@ -47,8 +47,9 @@ public class ReceiveNFC extends AppCompatActivity {
                 currentFriend(user);
             }
 
-        } else
+        } else {
             mTextView.setText("Waiting for message");
+        }
 
 
     }
