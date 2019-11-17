@@ -50,6 +50,11 @@ public class User {
     public void updateNumber(String number) {
         this.phoneNumber = number;
     }
+
+    public String getNumber() {
+        return this.phoneNumber;
+    }
+
     public String getName() {
         return name;
     }
