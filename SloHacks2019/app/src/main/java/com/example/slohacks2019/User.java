@@ -1,5 +1,7 @@
 package com.example.slohacks2019;
 
+import android.util.Log;
+
 public class User {
 
     private String name;
@@ -16,6 +18,11 @@ public class User {
         fact = "";
         timesMet = 0;
         timesMetConsecutively = 0;
+    }
+
+    public User(String identifier, int timesMet){
+        this.identifier = identifier;
+        this.timesMet = timesMet;
     }
 
     public User(String identifier, String name) {
@@ -70,6 +77,7 @@ public class User {
     }
 
     public int meetWith() {
+        Log.d("MeetWith", "in meet with");
         timesMet++;
         return timesMet;
     }
