@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/home"
-        android:onClick="openHome"
         android:title="Home"
         android:visible="true" />
     <item
@@ -13,7 +12,6 @@
         android:visible="true" />
     <item
         android:id="@+id/profile"
-        android:onClick="openProfile"
         android:title="Profile"
         android:visible="true" />
 </menu>
