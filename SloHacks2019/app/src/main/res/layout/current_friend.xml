@@ -5,25 +5,34 @@
     android:background="#396dbf"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        android:foreground="@drawable/ic_person_blue_24dp" />
+
     <TextView
         android:id="@+id/friendName"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/interestingFact"
         android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_height="52dp"
         android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/timesMet"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:text="TextView" />
+        android:layout_height="58dp"
+        android:text="TextView"
+        android:textSize="36sp" />
 
     <Button
         android:id="@+id/currentFriend"
@@ -31,11 +40,6 @@
         android:layout_height="100dp"
         android:background="#f4de15"
         android:onClick="toMain"
-        android:text="Button" />
+        android:text="@string/ToHome" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/ic_person_blue_24dp" />
 </LinearLayout>
